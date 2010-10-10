@@ -1,0 +1,6 @@
+Manifest
+Rakefile
+lib/jbuilder.rb
+lib/jbuilder/jbuilder_dsl.rb
+lib/jbuilder/jbuilder_handler.rb
+lib/jbuilder/railtie.rb
