@@ -72,8 +72,8 @@ module JBuilder
     end  
   
     def output
-      # result = current_content.size == 1 ? current_content.values.first : current_content
-      result = current_content
+      result = current_content.size == 1 ? current_content.values.first : current_content
+      # result = current_content
       JSON.generate(result)
     end
   
