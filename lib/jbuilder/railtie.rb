@@ -2,7 +2,6 @@ require 'jbuilder/jbuilder_dsl'
 require 'jbuilder/jbuilder_handler'
 require 'rails'
 
-puts "railtie loaded & require!!!!!!"
 
 module JBuilder
   class Railtie < Rails::Railtie
