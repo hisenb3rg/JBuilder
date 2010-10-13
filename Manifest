@@ -1,4 +1,5 @@
 Manifest
+README.rdoc
 Rakefile
 jbuilder.gemspec
 lib/jbuilder.rb

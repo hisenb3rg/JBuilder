@@ -1,0 +1,77 @@
+= JBuilder JSON Templating
+
+JBuilder is a simple templating for generating JSON output. With Builder-like DSL it allows you to have your controllers and models clean of view logic.
+Primarily for Rails, but no reason not be used elsewhere. It was inspired by Builder gem and it uses JSON gem in the background.
+
+
+== Motivation
+
+A while ago I was implementing a REST API in Rails3 for my latest project and I choose JSON for primary content type.
+After an easy start with Rails and JSON based API, I found myself struggling to implement it the right way in the MVC pattern.
+It gets even more annoying, when your API is growing beyond simplest example and when you want to have more control over the output format and logic.
+
+Rails usually tackles this challenge in one of three ways:
+* generating a simple JSON object in controller
+* or keeping the controller clean, but putting the generating code into model's to_json method
+* or having the view done in default ERB template
+First two approaches are strongly oppossing MVC pattern, having the view logic in either controller or model.
+Third is just too cumbersome, since ERB was meant for generating XML/HTML - and even there it doesn't exactly shine. (If you disagree, check HAML ;)
+
+What I was really missing was a simple templating for generating JSON output, something like Builder is for XML.
+If you ask me, this should come with Rails out of the box along with ERB and Builder.
+
+Here is the solution - a Builder-like JSON templating.
+
+== Examples and usage
+
+Let's say you want to produce output like this:
+  {
+    "user":
+    {
+      "id":13,
+      "nickname":"antiveb",
+      "email":"jurglic@antiveb.com",
+      "twitter_data":
+      {
+        "key":"7325872",
+        "token":"0",
+        "secret":"0",
+        "friends":
+        [
+          10,
+          20,
+          30
+        ]        
+      }
+    }
+  }
+  
+Your code would then look like this:
+  json.user do
+    json.value :id, 13
+    json.nickname "antiveb"
+    json.email    "jurglic@antiveb.com"
+    json.twitter_data do
+      json.key     "7325872"
+      json.token   "0"
+      json.secret  "0"
+      json.friends [10, 20, 30]
+    end
+  end
+
+== Setup
+
+Just install the gem and require it in your Gemfile:
+gem "jbuilder", :git => "git://github.com/antiveb/JBuilder.git"
+
+
+== Improving the docs
+
+If you find something confusing or encounter a problem with this instructions please fork this project, make the changes, and send me a pull request.
+
+== Contact
+  Author:    Uros Jurglic
+  Company:   Antiveb ltd.
+  Email:     jurglic@antiveb.com
+  Home Page: www.antiveb.com
+  License:   MIT Licence (www.opensource.org/licenses/mit-license.html)
