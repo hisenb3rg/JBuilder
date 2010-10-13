@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Thu Oct 14 00:40:36 +0200 2010</td>
+      <td>Thu Oct 14 00:56:40 +0200 2010</td>
     </tr>
     </table>
   </div>
@@ -131,12 +131,8 @@ Let&#8216;s say you want to produce output like this:
         &quot;key&quot;:&quot;7325872&quot;,
         &quot;token&quot;:&quot;0&quot;,
         &quot;secret&quot;:&quot;0&quot;,
-        &quot;friends&quot;:
-        [
-          10,
-          20,
-          30
-        ]
+        &quot;friends&quot;: [ 10, 20, 30 ],
+        &quot;followers&quot;: [ 20, 30 ]
       }
     }
   }
@@ -147,16 +143,43 @@ Your code would then look like this:
 <pre>
   json.user do
     json.value :id, 13
-    json.nickname &quot;antiveb&quot;
-    json.email    &quot;jurglic@antiveb.com&quot;
+    json.nickname   &quot;antiveb&quot;
+    json.email      &quot;jurglic@antiveb.com&quot;
     json.twitter_data do
       json.key     &quot;7325872&quot;
       json.token   &quot;0&quot;
       json.secret  &quot;0&quot;
       json.friends [10, 20, 30]
+      json.followers :array do
+        json.element 20
+        json.element 30
+      end
     end
   end
 </pre>
+<p>
+Some rules, how to write directives:
+</p>
+<ul>
+<li>every directive is prefixed with json.
+
+</li>
+<li>there are three directive types (methods), that can be directly invoked:
+value, array, object
+
+</li>
+<li>all three directive types take 2 parameters: name and value
+
+</li>
+<li>if the directive is not one of those mentioned, there is a shorthand
+directive that tries to guess the directive from arguments
+
+</li>
+<li>shorthand directive takes the directive name as first argument, and value
+as the second argument
+
+</li>
+</ul>
 <h2>Setup</h2>
 <p>
 Just install the gem and require it in your Gemfile: gem

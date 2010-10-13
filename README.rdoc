@@ -36,12 +36,8 @@ Let's say you want to produce output like this:
         "key":"7325872",
         "token":"0",
         "secret":"0",
-        "friends":
-        [
-          10,
-          20,
-          30
-        ]        
+        "friends": [ 10, 20, 30 ],
+        "followers": [ 20, 30 ]
       }
     }
   }
@@ -49,15 +45,27 @@ Let's say you want to produce output like this:
 Your code would then look like this:
   json.user do
     json.value :id, 13
-    json.nickname "antiveb"
-    json.email    "jurglic@antiveb.com"
+    json.nickname   "antiveb"
+    json.email      "jurglic@antiveb.com"
     json.twitter_data do
       json.key     "7325872"
       json.token   "0"
       json.secret  "0"
       json.friends [10, 20, 30]
+      json.followers :array do
+        json.element 20
+        json.element 30
+      end
     end
   end
+
+Some rules, how to write directives:
+* every directive is prefixed with json.
+* there are three directive types (methods), that can be directly invoked: value, array, object
+* all three directive types take 2 parameters: name and value
+* if the directive is not one of those mentioned, there is a shorthand directive that tries to guess the directive from arguments
+* shorthand directive takes the directive name as first argument, and value as the second argument
+
 
 == Setup
 
