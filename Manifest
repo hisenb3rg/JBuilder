@@ -1,5 +1,6 @@
 Manifest
 Rakefile
+jbuilder.gemspec
 lib/jbuilder.rb
 lib/jbuilder/jbuilder_dsl.rb
 lib/jbuilder/jbuilder_handler.rb
