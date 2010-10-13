@@ -64,7 +64,11 @@ module JBuilder
     end
   
     def value(name, value)
-      @content.last[name] = value
+      if current_content.is_a?(Array)
+        current_content << value
+      else
+        current_content[name] = value
+      end
     end
   
     def current_content

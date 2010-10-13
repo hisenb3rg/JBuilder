@@ -63,8 +63,8 @@ Some rules, how to write directives:
 * every directive is prefixed with json.
 * there are three directive types (methods), that can be directly invoked: value, array, object
 * all three directive types take 2 parameters: name and value
-* if the directive is not one of those mentioned, there is a shorthand directive that tries to guess the directive from arguments
-* shorthand directive takes the directive name as first argument, and value as the second argument
+* if the directive is not one of those mentioned, there is a shorthand directive that tries to guess the directive type from arguments
+* shorthand directive takes the directive name as the first argument and value as the second argument
 
 
 == Setup

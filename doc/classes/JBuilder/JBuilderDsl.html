@@ -188,10 +188,10 @@
             onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000006-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/jbuilder/jbuilder_dsl.rb, line 70</span>
-70:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_content</span>
-71:       <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">last</span>
-72:     <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/jbuilder/jbuilder_dsl.rb, line 74</span>
+74:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">current_content</span>
+75:       <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">last</span>
+76:     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -289,12 +289,12 @@
             onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000007-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/jbuilder/jbuilder_dsl.rb, line 74</span>
-74:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">output</span>
-75:       <span class="ruby-identifier">result</span> = <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">current_content</span>
-76:       <span class="ruby-comment cmt"># result = current_content</span>
-77:       <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">result</span>)
-78:     <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/jbuilder/jbuilder_dsl.rb, line 78</span>
+78:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">output</span>
+79:       <span class="ruby-identifier">result</span> = <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">current_content</span>
+80:       <span class="ruby-comment cmt"># result = current_content</span>
+81:       <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">result</span>)
+82:     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -316,8 +316,12 @@
 <pre>
     <span class="ruby-comment cmt"># File lib/jbuilder/jbuilder_dsl.rb, line 66</span>
 66:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
-67:       <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">last</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
-68:     <span class="ruby-keyword kw">end</span>
+67:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">current_content</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+68:         <span class="ruby-identifier">current_content</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>
+69:       <span class="ruby-keyword kw">else</span>
+70:         <span class="ruby-identifier">current_content</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">value</span>
+71:       <span class="ruby-keyword kw">end</span>
+72:     <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
