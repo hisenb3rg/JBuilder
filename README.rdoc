@@ -1,13 +1,13 @@
 = JBuilder JSON Templating
 
-JBuilder is a simple templating for generating JSON output. With Builder-like DSL it allows you to have your controllers and models clean of view logic.
+JBuilder is a simple templating engine for generating JSON output. With Builder-like DSL it allows you to have your controllers and models clean of view logic.
 Primarily for Rails, but no reason not be used elsewhere. It was inspired by Builder gem and it uses JSON gem in the background.
 
 
 == Motivation
 
 A while ago I was implementing a REST API in Rails3 for my latest project and I choose JSON for primary content type.
-After an easy start with Rails and JSON based API, I found myself struggling to implement it the right way in the MVC pattern.
+After an easy start with Rails and JSON based API, I found myself struggling to implement according to the MVC pattern.
 It gets even more annoying, when your API is growing beyond simplest example and when you want to have more control over the output format and logic.
 
 Rails usually tackles this challenge in one of three ways:
@@ -22,7 +22,7 @@ If you ask me, this should come with Rails out of the box along with ERB and Bui
 
 Here is the solution - a Builder-like JSON templating.
 
-== Examples and usage
+== Examples and Usage
 
 Let's say you want to produce output like this:
   {
