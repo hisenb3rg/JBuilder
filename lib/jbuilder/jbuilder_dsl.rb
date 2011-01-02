@@ -4,7 +4,6 @@ module JBuilder
   
     def initialize
       @content = [ActiveSupport::OrderedHash.new]
-      # @content = [hash_class.new]
     end
   
     def method_missing(method, *args, &block)
@@ -64,11 +63,12 @@ module JBuilder
     end
   
     def value(name, value)
-      if current_content.is_a?(Array)
-        current_content << value
-      else
-        current_content[name] = value
-      end
+      set_new_content(name, value)
+      # if current_content.is_a?(Array)
+      #   current_content << value
+      # else
+      #   current_content[name] = value
+      # end
     end
   
     def current_content
@@ -76,8 +76,8 @@ module JBuilder
     end  
   
     def output
-      result = current_content.size == 1 && current_content.values.first.is_a?(Array) ? current_content.values.first : current_content
-      # result = current_content
+      array_for_root = current_content.size == 1 && current_content.values.first.is_a?(Array) && current_content.keys.first.nil?
+      result = array_for_root ? current_content.values.first : current_content
       JSON.generate(result)
     end
   
@@ -85,6 +85,7 @@ module JBuilder
     private
   
       def set_new_content(key, content)
+        # set new content accordingly
         if current_content.is_a? Array
           current_content << content
         else

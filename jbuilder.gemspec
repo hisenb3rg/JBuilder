@@ -2,15 +2,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{jbuilder}
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Uros Jurglic"]
-  s.date = %q{2010-10-14}
+  s.date = %q{2011-01-02}
   s.description = %q{A gem that offers builder like templating for JSON}
   s.email = %q{jurglic @nospam@ antiveb.com}
-  s.extra_rdoc_files = ["README.rdoc", "lib/jbuilder.rb", "lib/jbuilder/jbuilder_dsl.rb", "lib/jbuilder/jbuilder_handler.rb", "lib/jbuilder/railtie.rb"]
-  s.files = ["Manifest", "README.rdoc", "Rakefile", "jbuilder.gemspec", "lib/jbuilder.rb", "lib/jbuilder/jbuilder_dsl.rb", "lib/jbuilder/jbuilder_handler.rb", "lib/jbuilder/railtie.rb"]
+  s.files = ["jbuilder.gemspec", "Rakefile"]
   s.homepage = %q{http://github.com/antiveb/jbuilder}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Jbuilder", "--main", "README.rdoc"]
   s.require_paths = ["lib"]

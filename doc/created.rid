@@ -1,1 +1,6 @@
-Thu, 14 Oct 2010 01:02:20 +0200
+Sun, 02 Jan 2011 21:09:29 +0100
+README.rdoc	Thu, 14 Oct 2010 00:58:27 +0200
+lib/jbuilder.rb	Tue, 12 Oct 2010 21:15:00 +0200
+lib/jbuilder/jbuilder_dsl.rb	Sun, 02 Jan 2011 21:02:17 +0100
+lib/jbuilder/jbuilder_handler.rb	Thu, 14 Oct 2010 23:15:19 +0200
+lib/jbuilder/railtie.rb	Sun, 02 Jan 2011 21:05:18 +0100
